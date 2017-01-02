@@ -1,17 +1,14 @@
 import React from 'react';
-import {Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import TextField from 'material-ui/TextField';
 
 const Search = ({value, onChange, children}) =>
 
     <form >
-        <FormGroup>
-        <ControlLabel>Search</ControlLabel>
-        <FormControl
+        <TextField
             type="text"
             value={value}
             onChange={onChange}
             />
-            </FormGroup>
     </form>
 
 

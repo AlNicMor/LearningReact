@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Search from './Search';
 import ContentTable from './Table';
 import './App.css';
+
+
 
 const list = [
 {
@@ -46,6 +49,7 @@ class App extends Component {
     const {list, query} = this.state;
     
     return (
+      <MuiThemeProvider>
       <div className="App">
           <Search
             value={query}
@@ -58,6 +62,7 @@ class App extends Component {
           pattern={query}
           ></ContentTable>
       </div>
+      </MuiThemeProvider>
     );
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
-import TableRow from './TableRow.js'
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 const isSearched = (query) => (item) =>
     !query || item.title.toLowerCase().includes(query.toLowerCase());
@@ -9,21 +8,28 @@ const isSearched = (query) => (item) =>
 const ContentTable = ({list, pattern}) =>
 
     <div>
-        <Table striped bordered condensed hover>
-            <thead>
-                <tr>
-                    <th>Tittle</th>
-                    <th>Author</th>
-                    <th>Number of Comments</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHeaderColumn>Tittle</TableHeaderColumn>
+                    <TableHeaderColumn>Author</TableHeaderColumn>
+                    <TableHeaderColumn>Number of Comments</TableHeaderColumn>
+                    <TableHeaderColumn>Points</TableHeaderColumn>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 {
                     list.filter(isSearched(pattern)).map((item) =>
-                        <TableRow item={item} key={item.objectID} />)
+                        <TableRow>
+                            <TableRowColumn>
+                                <a href={item.url}>{item.title}</a>
+                            </TableRowColumn>
+                            <TableRowColumn>{item.author}</TableRowColumn>
+                            <TableRowColumn>{item.num_comments}</TableRowColumn>
+                            <TableRowColumn>{item.points}</TableRowColumn>
+                        </TableRow>)
                 }
-            </tbody>
+            </TableBody>
         </Table>
     </div>
 

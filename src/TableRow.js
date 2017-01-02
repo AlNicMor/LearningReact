@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TableRow = ({item}) =>
+const ContentTableRow = ({item}) =>
 
     <tr>
         <td>
@@ -11,4 +11,4 @@ const TableRow = ({item}) =>
         <td>{item.points}</td>
     </tr>
 
-export default TableRow;
+export default ContentTableRow;
